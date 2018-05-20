@@ -1,6 +1,4 @@
 ﻿var jsonfile = require('jsonfile');
-var protractorMochaConfig = require('../protractor_configMocha.js');
-
 
 var eachRecursive = function (obj, testReportJson) {
    
