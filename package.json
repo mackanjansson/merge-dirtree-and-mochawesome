@@ -1,0 +1,19 @@
+{
+  "name": "add-folders-to-mochawesome",
+  "version": "0.0.1",
+  "description": "",
+  "main": "entryPoint.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mackanjansson/addFoldersToMochaAwesome.git"
+  },
+  "author": "Marcus Jansson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mackanjansson/addFoldersToMochaAwesome/issues"
+  },
+  "homepage": "https://github.com/mackanjansson/addFoldersToMochaAwesome#readme"
+}
