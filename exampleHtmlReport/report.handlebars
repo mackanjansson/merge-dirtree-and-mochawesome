@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<style>
+
+#allWrapper{
+    margin-left:auto;
+    margin-right:auto;
+    height:100%; 
+    width:100%;
+}
+#chartWrapper{
+    margin-left:auto;
+    margin-right:auto;
+    height:50%; 
+    width:100%;
+}
+    #chartWrapper:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+#hierarchyWrapper{
+    margin-left:auto;
+    margin-right:auto;
+    height:50%; 
+    width:100%;
+}
+
+ul{
+    margin-left: -20px;
+    margin-right: 10px;
+
+}
+
+</style>
+
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="http://livejs.com/live.js"></script>
+    
+</head>
+
+<body>
+    <div id="AllWrapper">
+        <div id="titleDate">
+            <div id="title">{{environment}}</div>
+            <div id="date">{{timeStamp}}</div>
+        </div>
+        <div id="chartWrapper">
+            <div id="describes" style="float:left;"></div>
+            <div id="its" style="float:left;"></div>
+        </div>
+        <div id="hierarchyWrapper">
+            <p>IF there are failed tests, details are shown below:</p><br>
+                {{> recursiveFolder this}}
+        </div>
+   </div>
+</body>
+
+</html>
+<script>
+        
+           
+        var passedCount={{status.passed}};
+        var failedCount={{status.failed}};
+        var pendingCount={{status.pending}};
+        var suitePassedCount={{status.suitePassedCount}};
+        var suiteFailedCount={{status.suiteFailedCount}};
+        var suitePendingCount={{status.suitePendingCount}};
+
+        var describes = document.getElementById('describes');
+        var describes_x=['passed', 'failed', 'pending'];
+        var describes_y = [suitePassedCount, suiteFailedCount, suitePendingCount];
+        
+        var describes_annotationContent = [];
+
+        for( var i = 0 ; i < describes_y.length ; i++ ){
+            var result = {
+                x: describes_x[i],
+                y: describes_y[i],
+                text: describes_y[i],
+                xanchor: 'center',
+                yanchor: 'bottom',
+                showarrow: false
+            };
+            describes_annotationContent.push(result);
+        }
+
+        var describesLayout = {
+            title: "Describe's",
+            annotations: describes_annotationContent
+        };
+        
+        var describesTrace=[
+                {
+                    x: describes_x,
+                    y: describes_y,
+                    marker:{color: ['rgba(13, 250, 5, 1)', 'rgba(222,45,38,1)', 'rgba(35, 150, 251, 1)']},
+                    type:'bar' 
+                }
+        ];
+
+        Plotly.plot(describes, describesTrace, describesLayout );
+        
+
+
+        
+        var its = document.getElementById('its');
+        
+        var its_x=['passed', 'failed', 'pending'];
+        var its_y = [passedCount, failedCount, pendingCount];
+        
+        var its_annotationContent = [];
+
+        for( var i = 0 ; i < describes_y.length ; i++ ){
+            var result = {
+                x: its_x[i],
+                y: its_y[i],
+                text: its_y[i],
+                xanchor: 'center',
+                yanchor: 'bottom',
+                showarrow: false
+            };
+            its_annotationContent.push(result);
+        }
+
+	    var itsLayout = {
+	        title: "It's",
+	        annotations: its_annotationContent
+	    };
+	    
+	    var itsTrace=[
+                {
+                    x: its_x,
+                    y: its_y,
+                    marker:{color: ['rgba(13, 250, 5, 1)', 'rgba(222,45,38,1)', 'rgba(35, 150, 251, 1)']}, 
+                    type:'bar' 
+                }
+	    ];
+	    
+	    Plotly.plot(its, itsTrace, itsLayout );
+</script>

@@ -1,0 +1,27 @@
+<div>
+    <ul>
+        <li>
+            {{name}}
+            <ul>
+                {{#each tests}}
+                    {{#if fail}}
+                        <li style="color:red;">
+                            {{name}}
+                        </li>
+                    {{/if}}
+        
+                {{/each}}
+            </ul>
+
+            {{#if status.failed}}
+                <ul>
+                    {{#each children}}
+                        {{#if status.failed}}
+                            {{> recursiveFolder this}}
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </li>
+    </ul>
+</div>
