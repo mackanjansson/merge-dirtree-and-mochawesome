@@ -108,42 +108,6 @@ gulp.task('mochaDirTree', function () { //To create json out of the mocha direct
 
 
 
-gulp.task('protractorMocha', function (callback) {
-
-    console.log('protractorMochaConfig.config.specs ', protractorMochaConfig.config.specs);
-    console.log('protractorMochaConfig.config.exclude', protractorMochaConfig.config.exclude);
-    
-    if (typeof argv.specs != 'undefined') {
-
-        var specsArray = argv.specs.split(';');
-
-        protractorMochaConfig.config.specs = specsArray;
-    }
-
-    if (typeof argv.exclude != 'undefined') {
-
-        var excludeArray = argv.exclude.split(';');
-
-        protractorMochaConfig.config.exclude = excludeArray;
-    }
-    
-    gulp
-        .src([])
-        .pipe(protractor({
-            'configFile': protractorMochaConfig.config.configFileName,
-            'debug': false,
-            'autoStartStopServer': false,
-            'webDriverStart': false
-        }))
-        .on('error', function (e) {
-            callback();
-        })
-        .on('end', callback);
-});
-
-
-
-
 
 
 
