@@ -1,1 +1,1 @@
-# addFoldersToMochaAwesome
+# merge-dirtree-and-mochawesome

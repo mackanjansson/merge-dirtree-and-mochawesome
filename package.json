@@ -1,5 +1,5 @@
 {
-  "name": "add-folders-to-mochawesome",
+  "name": "merge-dirtree-and-mochawesome",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mackanjansson/addFoldersToMochaAwesome.git"
+    "url": "git+https://github.com/mackanjansson/merge-dirtree-and-mochawesome.git"
   },
   "author": "Marcus Jansson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mackanjansson/addFoldersToMochaAwesome/issues"
+    "url": "https://github.com/mackanjansson/merge-dirtree-and-mochawesome/issues"
   },
-  "homepage": "https://github.com/mackanjansson/addFoldersToMochaAwesome#readme",
+  "homepage": "https://github.com/mackanjansson/merge-dirtree-and-mochawesome#readme",
   "dependencies": {
     "dir-tree": "^1.0.1",
     "gulp": "^3.9.1",
