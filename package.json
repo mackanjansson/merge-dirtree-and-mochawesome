@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mackanjansson/merge-dirtree-and-mochawesome#readme",
   "dependencies": {
-    "dir-tree": "^1.0.1",
+    "directory-tree": "^2.1.0",
     "gulp": "^3.9.1",
     "gulp-compile-handlebars": "^0.6.1",
     "gulp-exit": "0.0.2",

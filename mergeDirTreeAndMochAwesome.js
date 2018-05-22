@@ -1,6 +1,4 @@
-﻿var jsonfile = require('jsonfile');
-
-var eachRecursive = function (obj, testReportJson) {
+﻿var eachRecursive = function (obj, testReportJson) {
    
     if (typeof obj.children !== 'undefined' ) {
 
@@ -193,8 +191,11 @@ var getTestReportMochaDataFromMochaFilePath = function (filePath, testReportFile
     
 
     var pathToRemove = __dirname.replace('MochaMergeTreeWithTestReportHelper', '');
+    console.log('pathToRemove ',pathToRemove);
     var allToReturn = [];
     for (var i = 0; i < testReportFile.suites.suites.length; i++) {
+        console.log('normalizedPath ',normalizedPath);
+        console.log('filePath ',filePath);
                 var normalizedPath = testReportFile.suites.suites[i].file.replace(pathToRemove, "");
         if (filePath === normalizedPath) {
             allToReturn.push(testReportFile.suites.suites[i]);
@@ -227,7 +228,7 @@ var mergeTreeWithTestReport = function (treeJson, testReportJson) {
 
     treeJson.timeStamp = new Date().toLocaleString();
 
-    jsonfile.writeFileSync(protractorMochaConfig.config.pathForMergedMochaJson, treeJson);
+    return treeJson;
 
 
 };
