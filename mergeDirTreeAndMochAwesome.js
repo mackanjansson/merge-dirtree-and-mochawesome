@@ -191,13 +191,18 @@ var getTestReportMochaDataFromMochaFilePath = function (filePath, testReportFile
     
 
     var pathToRemove = __dirname.replace('MochaMergeTreeWithTestReportHelper', '');
-    console.log('pathToRemove ',pathToRemove);
+    //console.log('__dirname ',__dirname);
+    //console.log('pathToRemove ',pathToRemove);
     var allToReturn = [];
     for (var i = 0; i < testReportFile.suites.suites.length; i++) {
-        console.log('normalizedPath ',normalizedPath);
-        console.log('filePath ',filePath);
-                var normalizedPath = testReportFile.suites.suites[i].file.replace(pathToRemove, "");
+        
+        //console.log('filePath ',filePath);
+        //console.log('testReportFile.suites.suites[i].file', testReportFile.suites.suites[i].file);
+        var normalizedPath = testReportFile.suites.suites[i].file.replace(pathToRemove, "");
+        normalizedPath = normalizedPath.substr(1);
+        //console.log('normalizedPath ',normalizedPath);
         if (filePath === normalizedPath) {
+            //console.log('SAME');
             allToReturn.push(testReportFile.suites.suites[i]);
         }
         else {
